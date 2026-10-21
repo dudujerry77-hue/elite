@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Elite Cuts Barbershop – Premium grooming. Book online.">
+<title>Elite Cuts Barbershop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <div class="logo" onclick="goPage('home')">Elite <b>Cuts</b></div>
+    <ul class="nav-links">
+      <li><a onclick="goPage('home')" data-pg="home">Home</a></li>
+      <li><a onclick="goPage('about')" data-pg="about">About</a></li>
+      <li><a onclick="goPage('services')" data-pg="services">Services</a></li>
+      <li><a onclick="goPage('gallery')" data-pg="gallery">Gallery</a></li>
+      <li><a onclick="goPage('reviews')" data-pg="reviews">Reviews</a></li>
+      <li><a onclick="goPage('contact')" data-pg="contact">Contact</a></li>
+    </ul>
+    <div class="nav-acts">
+      <button class="theme-btn" onclick="toggleTheme()" id="tbtn"><i class="fa-solid fa-sun"></i></button>
+      <button class="btn btn-gold btn-sm" onclick="goPage('booking')"><i class="fa-solid fa-calendar-check"></i> Book Now</button>
+      <button class="ham" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div id="mob-menu">
+  <button class="close-mob" onclick="toggleMob()"><i class="fa-solid fa-xmark"></i></button>
+  <a onclick="goPage('home');toggleMob()">Home</a>
+  <a onclick="goPage('about');toggleMob()">About</a>
+  <a onclick="goPage('services');toggleMob()">Services</a>
+  <a onclick="goPage('gallery');toggleMob()">Gallery</a>
+  <a onclick="goPage('reviews');toggleMob()">Reviews</a>
+  <a onclick="goPage('contact');toggleMob()">Contact</a>
+  <a onclick="goPage('booking');toggleMob()" style="color:var(--gold)"><i class="fa-solid fa-calendar-check"></i> Book Appointment</a>
+</div>
+
+<!-- HOME -->
+<div class="page on" id="pg-home">
+
+<section id="hero">
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1600&q=80" alt="Elite barbershop interior"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-ct">
+    <div class="hero-txt fade-in">
+      <div class="hero-eye"><span class="eyebrow">Premium Barbershop · Est. 2015</span></div>
+      <h1 style="color:#fff">Where <span class="gold">Style</span><br>Meets <span class="gold">Precision</span></h1>
+      <p>Abuja's most distinguished barbershop master-level grooming in a luxury environment built for the modern gentleman.</p>
+      <div class="hero-btns">
+        <button class="btn btn-gold" onclick="goPage('booking')"><i class="fa-solid fa-calendar-check"></i> Book Appointment</button>
+        <button class="btn btn-out" style="color:#fff;border-color:rgba(255,255,255,.4)" onclick="goPage('services')"><i class="fa-solid fa-scissors"></i> Our Services</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="h-stat-n">4,200+</div><div class="h-stat-l">Happy Clients</div></div>
+        <div><div class="h-stat-n">8</div><div class="h-stat-l">Expert Barbers</div></div>
+        <div><div class="h-stat-n">4.9<i class="fa-solid fa-star" style="font-size:1.2rem;margin-left:.2rem"></i></div><div class="h-stat-l">Average Rating</div></div>
+      </div>
+    </div>
+    <div class="hero-card fade-in d2">
+      <div class="live-badge"><span class="live-dot"></span> Live Availability</div>
+      <div class="avail-barbers" id="hero-avail"></div>
+      <div class="next-slot"><i class="fa-regular fa-clock" style="font-size:.9rem;margin-right:.4rem"></i>Today 2:30 PM</div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:1.1rem" onclick="goPage('booking')"><i class="fa-solid fa-calendar-plus"></i> Reserve Now</button>
+      <div class="hero-prices">
+        <div class="hp"><div class="hp-amt" id="h-price1">₦3,500</div><div class="hp-lbl">Haircut</div></div>
+        <div class="hp"><div class="hp-amt" id="h-price2">₦12,000</div><div class="hp-lbl">VIP Package</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind"><span>Scroll</span><i class="fa-solid fa-chevron-down"></i></div>
+</section>
+
+<div class="mq-wrap"><div class="mq-track" id="mq"></div></div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-hd fade-in">
+      <div class="eyebrow">What We Offer</div>
+      <h2>Our <span class="gold">Services</span></h2>
+      <div class="gold-line c"></div>
+      <p class="body-sm" style="max-width:480px;margin:.75rem auto 0">Crafted with precision. Every service is tailored to you.</p>
+    </div>
+    <div class="svcs-grid" id="home-svcs"></div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn btn-out" onclick="goPage('services')"><i class="fa-solid fa-list"></i> View All Services</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--surf)">
+  <div class="wrap">
+    <div class="sec-hd fade-in">
+      <div class="eyebrow">The Craftsmen</div>
+      <h2>Meet Our <span class="gold">Barbers</span></h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="barbers-grid" id="home-barbers"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-hd fade-in">
+      <div class="eyebrow">The Elite Difference</div>
+      <h2>Why Choose <span class="gold">Us</span></h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in"><div class="why-icon"><i class="fa-solid fa-scissors"></i></div><h4 style="margin-bottom:.4rem;font-size:1rem">Master Barbers</h4><p class="body-sm">All barbers have 5+ years of professional training and ongoing education.</p></div>
+      <div class="why-card fade-in d1"><div class="why-icon"><i class="fa-solid fa-calendar-check"></i></div><h4 style="margin-bottom:.4rem;font-size:1rem">Easy Online Booking</h4><p class="body-sm">Book your slot in under 60 seconds choose barber, service, and time.</p></div>
+      <div class="why-card fade-in d2"><div class="why-icon"><i class="fa-solid fa-bottle-droplet"></i></div><h4 style="margin-bottom:.4rem;font-size:1rem">Premium Products</h4><p class="body-sm">We use only top-tier grooming products that nourish and protect.</p></div>
+      <div class="why-card fade-in"><div class="why-icon"><i class="fa-solid fa-star"></i></div><h4 style="margin-bottom:.4rem;font-size:1rem">5-Star Experience</h4><p class="body-sm">Rated 4.9/5 across 800+ reviews. Your satisfaction is guaranteed.</p></div>
+      <div class="why-card fade-in d1"><div class="why-icon"><i class="fa-solid fa-couch"></i></div><h4 style="margin-bottom:.4rem;font-size:1rem">Luxury Environment</h4><p class="body-sm">A premium, clean, relaxing space grooming the way it should feel.</p></div>
+      <div class="why-card fade-in d2"><div class="why-icon"><i class="fa-brands fa-whatsapp"></i></div><h4 style="margin-bottom:.4rem;font-size:1rem">WhatsApp Support</h4><p class="body-sm">Questions? Reschedule? Reach us directly on WhatsApp anytime.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--surf)">
+  <div class="wrap">
+    <div class="sec-hd fade-in">
+      <div class="eyebrow">Client Words</div>
+      <h2>What They <span class="gold">Say</span></h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="test-grid" id="home-reviews"></div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn btn-out" onclick="goPage('reviews')"><i class="fa-solid fa-comments"></i> Read All Reviews</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-hd fade-in">
+      <div class="eyebrow">Our Work</div>
+      <h2>Style <span class="gold">Gallery</span></h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="gal-grid" id="home-gal"></div>
+    <div style="text-align:center;margin-top:2.5rem">
+      <button class="btn btn-out" onclick="goPage('gallery')"><i class="fa-solid fa-images"></i> View Full Gallery</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--surf)">
+  <div class="wrap" style="text-align:center;max-width:720px">
+    <div class="eyebrow fade-in">Ready?</div>
+    <h2 class="fade-in" style="margin:.75rem 0 1rem">Book Your <span class="gold">Appointment</span> Today</h2>
+    <div class="gold-line c fade-in"></div>
+    <p class="body-sm fade-in" style="max-width:440px;margin:.75rem auto 2rem">Skip the queue. Pick your barber, choose your time, and show up looking sharp.</p>
+    <div style="display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap" class="fade-in">
+      <button class="btn btn-gold" onclick="goPage('booking')"><i class="fa-solid fa-calendar-plus"></i> Book an Appointment</button>
+      <a href="https://wa.me/2348083252950" class="btn btn-out" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="pg-about">
+  <div class="page-hd">
+    <div class="eyebrow">Our Story</div>
+    <h1>About <span class="gold">Elite Cuts</span></h1>
+    <p>Built on precision, passion, and pride redefining what grooming means.</p>
+  </div>
+  <section class="section">
+    <div class="wrap">
+      <div class="about-story">
+        <div class="about-img-wrap fade-in"><img src="https://images.unsplash.com/photo-1584316712724-f5d4b188fee2?w=800&q=80" alt="Barbershop interior"></div>
+        <div class="fade-in d1">
+          <div class="eyebrow">Est. 2015</div>
+          <h2>From One Chair<br><span class="gold">to an Empire</span></h2>
+          <div class="gold-line" style="margin:.85rem 0 1.25rem"></div>
+          <p class="body-sm" style="margin-bottom:1rem">Elite Cuts was founded in 2015 by Kingsley Obi with a single vision: a barbershop where craft meets comfort where every client feels like a VIP.</p>
+          <p class="body-sm">Starting with one chair in Wuse 2, we've grown to an 8-barber flagship in Maitama with over 4,200 loyal clients.</p>
+          <div class="tl">
+            <div class="tl-item"><div class="tl-yr">2015</div><div class="body-sm">Opened first location in Wuse 2 with 2 barber chairs</div></div>
+            <div class="tl-item"><div class="tl-yr">2018</div><div class="body-sm">Expanded to Maitama flagship 6 chairs, premium lounge</div></div>
+            <div class="tl-item"><div class="tl-yr">2021</div><div class="body-sm">Launched online booking and VIP membership program</div></div>
+            <div class="tl-item"><div class="tl-yr">2024</div><div class="body-sm">Named Abuja's #1 Barbershop by StyleNG Magazine</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="vals-grid">
+        <div class="val-card fade-in"><div class="val-icon"><i class="fa-solid fa-scissors"></i></div><h3 class="gold" style="margin-bottom:.5rem">Precision</h3><div class="gold-line c" style="margin:.5rem auto 1rem"></div><p class="body-sm">Every cut is deliberate. We study your face, style, and goals before touching a clipper.</p></div>
+        <div class="val-card fade-in d1"><div class="val-icon"><i class="fa-solid fa-crown"></i></div><h3 class="gold" style="margin-bottom:.5rem">Luxury</h3><div class="gold-line c" style="margin:.5rem auto 1rem"></div><p class="body-sm">From the environment to the products every detail is chosen to elevate your experience.</p></div>
+        <div class="val-card fade-in d2"><div class="val-icon"><i class="fa-solid fa-handshake"></i></div><h3 class="gold" style="margin-bottom:.5rem">Loyalty</h3><div class="gold-line c" style="margin:.5rem auto 1rem"></div><p class="body-sm">Our clients aren't just customers they're part of the Elite Cuts family.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="pg-services">
+  <div class="page-hd">
+    <div class="eyebrow">Pricing & Services</div>
+    <h1>Our <span class="gold">Services</span></h1>
+    <p>Professional grooming for the modern gentleman. Every service includes a consultation.</p>
+  </div>
+  <section class="section" style="padding-top:2rem">
+    <div class="wrap">
+      <div class="svcs-grid" id="page-svcs"></div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <button class="btn btn-gold" onclick="goPage('booking')"><i class="fa-solid fa-calendar-check"></i> Book Any Service</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- GALLERY -->
+<div class="page" id="pg-gallery">
+  <div class="page-hd">
+    <div class="eyebrow">Our Work</div>
+    <h1>Style <span class="gold">Gallery</span></h1>
+    <p>Real results from real clients. Browse our portfolio of transformations.</p>
+  </div>
+  <section class="section" style="padding-top:2rem">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.85rem" id="full-gal"></div>
+    </div>
+  </section>
+</div>
+
+<!-- REVIEWS -->
+<div class="page" id="pg-reviews">
+  <div class="page-hd">
+    <div class="eyebrow">Client Reviews</div>
+    <h1><span class="gold">Testimonials</span></h1>
+    <p>Honest words from clients who've experienced the Elite Cuts difference.</p>
+  </div>
+  <section class="section" style="padding-top:2rem">
+    <div class="wrap">
+      <div style="display:flex;gap:1.5rem;justify-content:center;margin-bottom:3rem;flex-wrap:wrap" class="fade-in">
+        <div style="text-align:center;padding:1.25rem 2rem;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl)">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold)">4.9</div>
+          <div style="color:var(--gold);font-size:1rem;margin:.2rem 0"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <div class="body-sm">Average Rating</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem 2rem;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl)">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold)">842</div>
+          <div class="body-sm" style="margin-top:.5rem">Total Reviews</div>
+        </div>
+        <div style="text-align:center;padding:1.25rem 2rem;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--rl)">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--gold)">97%</div>
+          <div class="body-sm" style="margin-top:.5rem">Would Recommend</div>
+        </div>
+      </div>
+      <div class="test-grid" id="all-reviews"></div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="pg-contact">
+  <div class="page-hd">
+    <div class="eyebrow">Get In Touch</div>
+    <h1><span class="gold">Contact</span> Us</h1>
+    <p>Visit us, call, or send a message we'd love to hear from you.</p>
+  </div>
+  <section class="section" style="padding-top:2rem">
+    <div class="wrap">
+      <div class="contact-wrap">
+        <div class="fade-in">
+          <div class="eyebrow">Find Us</div>
+          <h2>Visit <span class="gold">Elite Cuts</span></h2>
+          <div class="gold-line" style="margin:.85rem 0 1.5rem"></div>
+          <div class="ci-items" id="contact-info"></div>
+          <div class="map-ph"><i class="fa-solid fa-map-location-dot" style="margin-right:.5rem"></i> 14 Aminu Kano Crescent, Maitama, Abuja</div>
+          <div class="soc-links">
+            <a href="#" class="soc-link" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="soc-link" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/2348083252950" class="soc-link" title="WhatsApp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="adm-form fade-in d1" style="margin-bottom:0">
+          <h4><i class="fa-solid fa-paper-plane"></i> Send a Message</h4>
+          <form onsubmit="sendContact(event)">
+            <div class="fg"><label>Full Name</label><input type="text" placeholder="Emeka Johnson" required></div>
+            <div class="frow">
+              <div class="fg"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+              <div class="fg"><label>Phone</label><input type="tel" placeholder="0801 234 5678"></div>
+            </div>
+            <div class="fg"><label>Subject</label>
+              <select><option>General Inquiry</option><option>Booking Help</option><option>Feedback</option><option>Partnership</option><option>Other</option></select>
+            </div>
+            <div class="fg"><label>Message</label><textarea rows="5" placeholder="Your message..." style="resize:vertical"></textarea></div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BOOKING -->
+<div class="page" id="pg-booking">
+  <div class="page-hd">
+    <div class="eyebrow">Schedule a Visit</div>
+    <h1>Book an <span class="gold">Appointment</span></h1>
+    <p>Select your service, pick your barber, and reserve your time in under 60 seconds.</p>
+  </div>
+  <section class="section" style="padding-top:2rem">
+    <div class="wrap">
+      <div class="booking-wrap">
+        <div class="fade-in">
+          <div class="eyebrow">How It Works</div>
+          <h2>Your <span class="gold">3-Step</span> Booking</h2>
+          <div class="gold-line" style="margin:.85rem 0 1.5rem"></div>
+          <div class="book-steps">
+            <div class="bstep"><div class="bstep-n">1</div><div><h4 style="font-size:.95rem;margin-bottom:.3rem">Choose Service & Barber</h4><p class="body-sm">Browse our services and pick your preferred barber.</p></div></div>
+            <div class="bstep"><div class="bstep-n">2</div><div><h4 style="font-size:.95rem;margin-bottom:.3rem">Select Date & Time</h4><p class="body-sm">Pick from live available slots.</p></div></div>
+            <div class="bstep"><div class="bstep-n">3</div><div><h4 style="font-size:.95rem;margin-bottom:.3rem">Confirm & Get Notified</h4><p class="body-sm">WhatsApp confirmation within minutes. Show up and look sharp.</p></div></div>
+          </div>
+          <div style="margin-top:2rem;padding:1.25rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.18);border-radius:var(--rl)">
+            <div class="eyebrow" style="margin-bottom:.4rem">Walk-ins</div>
+            <p class="body-sm">We welcome walk-ins subject to barber availability. Booking guarantees your slot.</p>
+          </div>
+          <div style="margin-top:1.5rem">
+            <img src="https://images.unsplash.com/photo-1620331311520-246422fd82f9?w=600&q=80" alt="Barber at work" style="width:100%;border-radius:var(--rl);aspect-ratio:16/9">
+          </div>
+        </div>
+        <div class="adm-form fade-in d1" style="margin-bottom:0">
+          <h4><i class="fa-solid fa-calendar-plus"></i> Your Booking Details</h4>
+          <form onsubmit="submitBooking(event)" id="book-form">
+            <div class="fg"><label>Service *</label><select id="b-svc" required onchange="updatePrice()"></select></div>
+            <div class="fg"><label>Barber *</label><select id="b-barber"></select></div>
+            <div class="frow">
+              <div class="fg"><label>Date *</label><input type="date" id="b-date" required></div>
+              <div class="fg"><label>Time *</label>
+                <div class="time-slots" id="time-slot-wrap">
+                  <div class="tslot sel" onclick="pickTime(this,'9:00 AM')">9:00</div>
+                  <div class="tslot" onclick="pickTime(this,'9:30 AM')">9:30</div>
+                  <div class="tslot" onclick="pickTime(this,'10:00 AM')">10:00</div>
+                  <div class="tslot" onclick="pickTime(this,'10:30 AM')">10:30</div>
+                  <div class="tslot na">11:00</div>
+                  <div class="tslot" onclick="pickTime(this,'11:30 AM')">11:30</div>
+                  <div class="tslot" onclick="pickTime(this,'12:00 PM')">12:00</div>
+                  <div class="tslot na">12:30</div>
+                  <div class="tslot" onclick="pickTime(this,'1:00 PM')">13:00</div>
+                  <div class="tslot" onclick="pickTime(this,'2:00 PM')">14:00</div>
+                  <div class="tslot" onclick="pickTime(this,'2:30 PM')">14:30</div>
+                  <div class="tslot" onclick="pickTime(this,'3:00 PM')">15:00</div>
+                </div>
+              </div>
+            </div>
+            <div class="frow">
+              <div class="fg"><label>Full Name *</label><input type="text" id="b-name" placeholder="Your full name" required></div>
+              <div class="fg"><label>WhatsApp *</label><input type="tel" id="b-phone" placeholder="0801 234 5678" required></div>
+            </div>
+            <div class="fg"><label>Notes for Barber</label><textarea rows="2" id="b-notes" placeholder="Any specific style requests..." style="resize:vertical"></textarea></div>
+            <div class="price-preview" id="price-prev">
+              <span id="prev-svc" class="body-sm"></span>
+              <span id="prev-amt" style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold)"></span>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fa-solid fa-check"></i> Confirm Appointment</button>
+            <p class="body-sm" style="text-align:center;margin-top:.85rem"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> You'll receive a WhatsApp confirmation shortly.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ADMIN -->
+<div class="page" id="pg-admin">
+  <div id="adm-login">
+    <div class="login-box">
+      <div class="logo" style="font-size:1.3rem;margin-bottom:1rem">Elite <b>Admin</b></div>
+      <h2>Dashboard Access</h2>
+      <p>Enter your admin credentials</p>
+      <form onsubmit="doLogin(event)">
+        <div class="fg" style="text-align:left"><label>Username</label><input type="text" id="lu" value="admin"></div>
+        <div class="fg" style="text-align:left"><label>Password</label><input type="password" id="lp" value="1234"></div>
+        <p class="body-sm" style="margin-bottom:1rem;color:var(--tx2)">Demo: admin / 1234</p>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fa-solid fa-lock-open"></i> Access Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="adm-wrap">
+    <div class="adm-side">
+      <div class="adm-brand">
+        <div class="logo">Elite <b>Cuts</b></div>
+        <p>Admin Panel v2</p>
+      </div>
+      <nav class="adm-nav">
+        <div class="anav-item on" data-sec="dashboard" onclick="admSec('dashboard',this)"><i class="fa-solid fa-chart-line"></i> Dashboard</div>
+        <div class="anav-item" data-sec="appointments" onclick="admSec('appointments',this)"><i class="fa-solid fa-calendar-days"></i> Appointments</div>
+        <div class="anav-item" data-sec="barbers" onclick="admSec('barbers',this)"><i class="fa-solid fa-user-tie"></i> Barbers</div>
+        <div class="anav-item" data-sec="services" onclick="admSec('services',this)"><i class="fa-solid fa-scissors"></i> Services & Pricing</div>
+        <div class="anav-item" data-sec="styles" onclick="admSec('styles',this)"><i class="fa-solid fa-palette"></i> Hairstyle Catalog</div>
+        <div class="anav-item" data-sec="gallery" onclick="admSec('gallery',this)"><i class="fa-solid fa-images"></i> Gallery</div>
+        <div class="anav-item" data-sec="reviews" onclick="admSec('reviews',this)"><i class="fa-solid fa-star"></i> Reviews</div>
+        <div class="anav-item" data-sec="settings" onclick="admSec('settings',this)"><i class="fa-solid fa-gear"></i> Site Settings</div>
+      </nav>
+      <div class="anav-foot">
+        <div class="anav-item" onclick="goPage('home')" style="padding:.6rem 0"><i class="fa-solid fa-arrow-left"></i> Back to Site</div>
+      </div>
+    </div>
+    <div class="adm-main">
+
+      <div class="adm-sec on" id="as-dashboard">
+        <div class="adm-hd">
+          <div><h2>Dashboard</h2><p>Welcome back, Kingsley. Here's today's overview.</p></div>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <button class="btn-ghost" onclick="goPage('booking')"><i class="fa-solid fa-plus"></i> New Booking</button>
+            <button class="btn btn-gold btn-sm" onclick="exportReport()"><i class="fa-solid fa-download"></i> Export</button>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-c"><div class="stat-lbl">Today's Bookings</div><div class="stat-val">12</div><div class="stat-chg"><i class="fa-solid fa-arrow-trend-up"></i> 3 from yesterday</div></div>
+          <div class="stat-c"><div class="stat-lbl">Monthly Revenue</div><div class="stat-val">₦842K</div><div class="stat-chg"><i class="fa-solid fa-arrow-trend-up"></i> +18% vs last month</div></div>
+          <div class="stat-c"><div class="stat-lbl">Total Clients</div><div class="stat-val">4,218</div><div class="stat-chg"><i class="fa-solid fa-arrow-trend-up"></i> 42 this month</div></div>
+          <div class="stat-c"><div class="stat-lbl">Avg. Rating</div><div class="stat-val">4.9<i class="fa-solid fa-star" style="font-size:1rem"></i></div><div class="stat-chg"><i class="fa-solid fa-arrow-trend-up"></i> +0.1 this quarter</div></div>
+        </div>
+        <div class="tbl-wrap">
+          <div class="tbl-hd"><h4><i class="fa-solid fa-calendar-day"></i> Today's Appointments</h4><button class="btn-ghost" onclick="jumpToAppts()">View All</button></div>
+          <div class="tbl-scroll"><table><thead><tr><th>Time</th><th>Client</th><th>Service</th><th>Barber</th><th>Status</th><th>Amount</th></tr></thead>
+          <tbody id="dash-today"></tbody></table></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem">
+          <div class="tbl-wrap"><div class="tbl-hd"><h4><i class="fa-solid fa-chart-bar"></i> Barber Revenue</h4></div><div style="padding:1.25rem" id="rev-bars"></div></div>
+          <div class="tbl-wrap"><div class="tbl-hd"><h4><i class="fa-solid fa-fire"></i> Popular Services</h4></div><div style="padding:1.25rem" id="svc-pop"></div></div>
+        </div>
+      </div>
+
+      <div class="adm-sec" id="as-appointments">
+        <div class="adm-hd">
+          <div><h2>Appointments</h2><p>View and manage all bookings</p></div>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <select class="btn-ghost" style="cursor:pointer" onchange="filterAppts(this.value)">
+              <option value="all">All Status</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="pending">Pending</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+            <button class="btn btn-gold btn-sm" onclick="goPage('booking')"><i class="fa-solid fa-plus"></i> New</button>
+          </div>
+        </div>
+        <div class="tbl-wrap"><div class="tbl-scroll">
+          <table><thead><tr><th>Date/Time</th><th>Client</th><th>Phone</th><th>Service</th><th>Barber</th><th>Status</th><th>Amt</th><th>Actions</th></tr></thead>
+          <tbody id="all-appts"></tbody></table>
+        </div></div>
+      </div>
+
+      <div class="adm-sec" id="as-barbers">
+        <div class="adm-hd">
+          <div><h2>Barbers</h2><p>Manage your team edit photos, specialties, status</p></div>
+          <button class="btn btn-gold btn-sm" onclick="openBarberModal()"><i class="fa-solid fa-user-plus"></i> Add Barber</button>
+        </div>
+        <div class="tbl-wrap"><div class="tbl-scroll">
+          <table><thead><tr><th>Photo</th><th>Barber</th><th>Specialty</th><th>Rating</th><th>Bookings</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="barbers-tbl"></tbody></table>
+        </div></div>
+      </div>
+
+      <div class="adm-sec" id="as-services">
+        <div class="adm-hd">
+          <div><h2>Services & Pricing</h2><p>Edit names, prices, durations changes reflect across the whole site instantly</p></div>
+          <button class="btn btn-gold btn-sm" onclick="openSvcModal()"><i class="fa-solid fa-plus"></i> Add Service</button>
+        </div>
+        <div class="tbl-wrap"><div class="tbl-scroll">
+          <table><thead><tr><th>Icon</th><th>Service Name</th><th>Duration</th><th>Price</th><th>Bookings</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="svcs-tbl"></tbody></table>
+        </div></div>
+      </div>
+
+      <div class="adm-sec" id="as-styles">
+        <div class="adm-hd">
+          <div><h2>Hairstyle Catalog</h2><p>Add styles with name, price, image, and description</p></div>
+          <button class="btn btn-gold btn-sm" onclick="openStyleModal()"><i class="fa-solid fa-plus"></i> Add Style</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem" id="styles-admin-grid"></div>
+      </div>
+
+      <div class="adm-sec" id="as-gallery">
+        <div class="adm-hd">
+          <div><h2>Gallery</h2><p>Manage gallery images with captions and categories</p></div>
+          <button class="btn btn-gold btn-sm" onclick="openGalModal()"><i class="fa-solid fa-plus"></i> Add Image</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem" id="gal-admin-grid"></div>
+      </div>
+
+      <div class="adm-sec" id="as-reviews">
+        <div class="adm-hd">
+          <div><h2>Reviews</h2><p>Moderate and manage client testimonials</p></div>
+          <button class="btn btn-gold btn-sm" onclick="openRevModal()"><i class="fa-solid fa-plus"></i> Add Review</button>
+        </div>
+        <div class="tbl-wrap"><div class="tbl-scroll">
+          <table><thead><tr><th>Client</th><th>Review</th><th>Rating</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="revs-tbl"></tbody></table>
+        </div></div>
+      </div>
+
+      <div class="adm-sec" id="as-settings">
+        <div class="adm-hd"><div><h2>Site Settings</h2><p>Edit business info that appears across the site</p></div></div>
+        <div class="adm-form">
+          <h4><i class="fa-solid fa-store"></i> Business Information</h4>
+          <div class="frow">
+            <div class="fg"><label>Business Name</label><input type="text" id="set-name"></div>
+            <div class="fg"><label>Tagline</label><input type="text" id="set-tag"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Phone</label><input type="tel" id="set-phone"></div>
+            <div class="fg"><label>WhatsApp Number (no + or spaces)</label><input type="tel" id="set-wa"></div>
+          </div>
+          <div class="fg"><label>Address</label><input type="text" id="set-addr"></div>
+          <div class="frow">
+            <div class="fg"><label>Email</label><input type="email" id="set-email"></div>
+            <div class="fg"><label>Instagram Handle</label><input type="text" id="set-ig"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Weekday Hours</label><input type="text" id="set-wkd"></div>
+            <div class="fg"><label>Weekend Hours</label><input type="text" id="set-wkn"></div>
+          </div>
+          <button class="btn btn-gold btn-sm" onclick="saveSettings()"><i class="fa-solid fa-save"></i> Save Settings</button>
+        </div>
+        <div class="adm-form">
+          <h4><i class="fa-solid fa-lock"></i> Change Admin Password</h4>
+          <div class="frow">
+            <div class="fg"><label>New Password</label><input type="password" id="set-pw" placeholder="Enter new password"></div>
+            <div class="fg"><label>Confirm Password</label><input type="password" id="set-pw2" placeholder="Confirm password"></div>
+          </div>
+          <button class="btn btn-gold btn-sm" onclick="changePw()"><i class="fa-solid fa-key"></i> Update Password</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer id="site-ft">
+  <div class="wrap">
+    <div class="ft-grid">
+      <div class="ft-brand">
+        <div class="logo">Elite <b>Cuts</b></div>
+        <p style="margin-top:.6rem" id="ft-tagline">Abuja's premium barbershop. Precision cuts, luxury experience since 2015.</p>
+        <div class="soc-links" style="margin-top:1.25rem">
+          <a href="#" class="soc-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="soc-link"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="soc-link"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://wa.me/2348083252950" class="soc-link" target="_blank" id="ft-wa-link"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="ft-col"><h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="goPage('home')">Home</a></li>
+          <li><a onclick="goPage('about')">About Us</a></li>
+          <li><a onclick="goPage('services')">Services</a></li>
+          <li><a onclick="goPage('gallery')">Gallery</a></li>
+          <li><a onclick="goPage('reviews')">Reviews</a></li>
+          <li><a onclick="goPage('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="ft-col"><h4>Services</h4><ul id="ft-svcs"></ul></div>
+      <div class="ft-col"><h4>Visit Us</h4>
+        <ul id="ft-info"></ul>
+        <div style="margin-top:1.5rem; display:none">
+          <a onclick="goPage('admin')" class="body-sm" style="color:var(--gold)"><i class="fa-solid fa-lock" style="font-size:.65rem"></i> Admin</a>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <span>© 2025 Elite Cuts Barbershop. All rights reserved.</span>
+      <span>Crafted for premium grooming · <a style="color:var(--gold)">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2348083252950" id="wa-btn" target="_blank" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+<div class="notif" id="notif"><h4 id="n-title">Done!</h4><p id="n-msg">Action completed.</p></div>
+
+<div class="modal-bg" id="book-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('book-modal')"><i class="fa-solid fa-xmark"></i></button>
+    <div style="font-size:2.5rem;margin-bottom:.75rem;color:#4CAF50"><i class="fa-solid fa-circle-check"></i></div>
+    <h3>Appointment <span class="gold">Confirmed!</span></h3>
+    <p id="modal-det" class="body-sm" style="margin:1rem 0 1.5rem"></p>
+    <div style="display:flex;gap:.85rem;flex-wrap:wrap">
+      <button class="btn btn-gold" onclick="closeModal('book-modal');goPage('home')"><i class="fa-solid fa-house"></i> Back to Home</button>
+      <a href="https://wa.me/2348083252950" class="btn btn-out" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="barber-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('barber-modal')"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="bm-title" style="margin-bottom:1.25rem">Add Barber</h3>
+    <div class="frow">
+      <div class="fg"><label>Full Name *</label><input type="text" id="bm-name" placeholder="Barber Name"></div>
+      <div class="fg"><label>Specialty</label><input type="text" id="bm-spec" placeholder="e.g. Skin Fade Specialist"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label>Years Experience</label><input type="number" id="bm-exp" placeholder="5" min="0"></div>
+      <div class="fg"><label>Rating (0-5)</label><input type="number" id="bm-rat" placeholder="4.9" step="0.1" min="0" max="5"></div>
+    </div>
+    <div class="fg"><label>Skills (comma separated)</label><input type="text" id="bm-skills" placeholder="Skin Fade, Beard, Classic Cut"></div>
+    <div class="fg"><label>Photo URL</label><input type="url" id="bm-photo" placeholder="https://images.unsplash.com/..."></div>
+    <div class="fg"><label>Status</label><select id="bm-status"><option value="active">Active</option><option value="inactive">Inactive</option></select></div>
+    <input type="hidden" id="bm-id">
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:.5rem" onclick="saveBarber()"><i class="fa-solid fa-save"></i> Save Barber</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="svc-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('svc-modal')"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="sm-title" style="margin-bottom:1.25rem">Add Service</h3>
+    <div class="frow">
+      <div class="fg"><label>Service Name *</label><input type="text" id="sm-name" placeholder="e.g. Hot Towel Shave"></div>
+      <div class="fg"><label>Icon (Font Awesome class)</label><input type="text" id="sm-icon" placeholder="fa-solid fa-scissors"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label>Price (₦) *</label><input type="number" id="sm-price" placeholder="3500"></div>
+      <div class="fg"><label>Duration (min)</label><input type="number" id="sm-dur" placeholder="30"></div>
+    </div>
+    <div class="fg"><label>Description</label><textarea rows="3" id="sm-desc" placeholder="Brief description..." style="resize:vertical"></textarea></div>
+    <div class="fg"><label>Available Barbers</label><input type="text" id="sm-barbers" placeholder="All barbers"></div>
+    <div class="fg"><label>Status</label><select id="sm-status"><option value="active">Active</option><option value="inactive">Inactive</option></select></div>
+    <input type="hidden" id="sm-id">
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:.5rem" onclick="saveSvc()"><i class="fa-solid fa-save"></i> Save Service</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="gal-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('gal-modal')"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="gm-title" style="margin-bottom:1.25rem">Add Gallery Image</h3>
+    <div class="fg"><label>Image URL *</label><input type="url" id="gm-url" placeholder="https://images.unsplash.com/..." oninput="previewGalImg()"></div>
+    <div id="gm-preview" style="margin-bottom:1rem;border-radius:var(--r);overflow:hidden;max-height:160px;display:none;border:1px solid var(--bdr)"><img id="gm-prev-img" src="" alt="" style="width:100%;height:160px;object-fit:cover"></div>
+    <div class="fg"><label>Caption / Style Name</label><input type="text" id="gm-cap" placeholder="e.g. Skin Fade"></div>
+    <div class="fg"><label>Category</label><select id="gm-cat"><option>Fade</option><option>Beard</option><option>Classic</option><option>Color</option><option>Kids</option><option>VIP</option><option>Other</option></select></div>
+    <input type="hidden" id="gm-id">
+    <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="saveGal()"><i class="fa-solid fa-save"></i> Save Image</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="rev-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('rev-modal')"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="rm-title" style="margin-bottom:1.25rem">Add Review</h3>
+    <div class="frow">
+      <div class="fg"><label>Client Name *</label><input type="text" id="rm-name" placeholder="John Doe"></div>
+      <div class="fg"><label>Rating</label><select id="rm-rat"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select></div>
+    </div>
+    <div class="fg"><label>Review Text *</label><textarea rows="4" id="rm-text" placeholder="Client's review..." style="resize:vertical"></textarea></div>
+    <div class="frow">
+      <div class="fg"><label>Date</label><input type="date" id="rm-date"></div>
+      <div class="fg"><label>Label</label><input type="text" id="rm-lbl" placeholder="e.g. Regular Client · 2 years"></div>
+    </div>
+    <div class="fg"><label>Status</label><select id="rm-status"><option value="published">Published</option><option value="pending">Pending</option></select></div>
+    <input type="hidden" id="rm-id">
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:.5rem" onclick="saveRev()"><i class="fa-solid fa-save"></i> Save Review</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="style-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('style-modal')"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="stm-title" style="margin-bottom:1.25rem">Add Hairstyle</h3>
+    <div class="frow">
+      <div class="fg"><label>Style Name *</label><input type="text" id="stm-name" placeholder="e.g. Low Fade Pompadour"></div>
+      <div class="fg"><label>Price (₦)</label><input type="number" id="stm-price" placeholder="4500"></div>
+    </div>
+    <div class="fg"><label>Image URL</label><input type="url" id="stm-img" placeholder="https://images.unsplash.com/..." oninput="previewStyleImg()"></div>
+    <div id="stm-preview" style="margin-bottom:1rem;border-radius:var(--r);overflow:hidden;max-height:140px;display:none;border:1px solid var(--bdr)"><img id="stm-prev-img" src="" alt="" style="width:100%;height:140px;object-fit:cover"></div>
+    <div class="fg"><label>Description</label><textarea rows="2" id="stm-desc" placeholder="Brief style description..." style="resize:vertical"></textarea></div>
+    <div class="frow">
+      <div class="fg"><label>Duration (min)</label><input type="number" id="stm-dur" placeholder="45"></div>
+      <div class="fg"><label>Category</label><select id="stm-cat"><option>Fade</option><option>Classic</option><option>Afro</option><option>Beard</option><option>Kids</option><option>Special</option></select></div>
+    </div>
+    <input type="hidden" id="stm-id">
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:.5rem" onclick="saveStyle()"><i class="fa-solid fa-save"></i> Save Style</button>
+  </div>
+</div>
+
+<div id="lightbox"><button class="lbx-close" onclick="closeLbx()"><i class="fa-solid fa-xmark"></i></button><img id="lbx-img" src="" alt=""></div>
+<script src="script.js"></script>
+</body>
+</html>
